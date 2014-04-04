@@ -1,0 +1,11 @@
+<div class="search-controls {pintop ? 'pintop': ''}">
+    <input type="text" on-keyup="search">
+</div>
+
+<div class="search-results" data-show="pintop">
+    <div each="results" class="search-result">
+        <div>{name}</div>
+        <div>{description}</div>
+    </div>
+</div>
+

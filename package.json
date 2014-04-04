@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "dependencies": {
+    "browserify-file": "0.0.0",
+    "commander": "2.2.0",
+    "enchilada": "0.8.0",
+    "express": "4.0.0-rc4",
+    "hbs": "2.5.0",
+    "reactive": "1.1.0",
+    "static-favicon": "1.0.2",
+    "stylish": "0.4.1",
+    "stylus": "0.42.3",
+    "taters": "0.1.0"
+  }
+}

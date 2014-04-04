@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+var app = require('../app');
+var program = require('commander');
+
+program.parse(process.argv);
+
+var server = app.listen(program.porg || 3000, function() {
+});
