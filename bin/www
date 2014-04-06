@@ -3,7 +3,10 @@
 var app = require('../app');
 var program = require('commander');
 
-program.parse(process.argv);
+program
+.usage('[options]')
+.option('--port [port]', 'listen on this port [3000]', process.env.port || 3000)
+.parse(process.argv);
 
-var server = app.listen(program.porg || 3000, function() {
+var server = app.listen(program.port, function() {
 });
