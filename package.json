@@ -16,5 +16,8 @@
   },
   "scripts": {
     "start": "./bin/www"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
