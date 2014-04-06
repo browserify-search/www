@@ -1,4 +1,6 @@
 {
+  "name": "www",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "browserify-file": "0.0.0",
@@ -11,5 +13,8 @@
     "stylish": "0.4.1",
     "stylus": "0.42.3",
     "taters": "0.1.0"
+  },
+  "scripts": {
+    "start": "./bin/www"
   }
 }
