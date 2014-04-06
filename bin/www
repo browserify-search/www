@@ -5,7 +5,7 @@ var program = require('commander');
 
 program
 .usage('[options]')
-.option('--port [port]', 'listen on this port [3000]', process.env.port || 3000)
+.option('--port [port]', 'listen on this port [3000]', process.env.PORT || 3000)
 .parse(process.argv);
 
 var server = app.listen(program.port, function() {
