@@ -41,6 +41,18 @@ app.get('/', function(req, res, next) {
     res.render('index');
 });
 
+// TODO put search stuff here
+app.get('/api/search', function(req, res, next) {
+    var query = req.query.q;
+
+    // sample results
+    res.json([
+        { name: 'reactive', description: 'foobar' },
+        { name: 'xtend', description: 'foobaz' },
+        { name: 'prototype', description: 'magic beans' }
+    ]);
+});
+
 // 404 handler
 app.use(function(req, res, next) {
     res.render('404');
