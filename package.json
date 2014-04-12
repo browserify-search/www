@@ -5,9 +5,12 @@
   "dependencies": {
     "browserify-file": "0.0.0",
     "commander": "2.2.0",
+    "debug": "0.8.0",
     "enchilada": "0.8.0",
     "express": "4.0.0-rc4",
+    "gaussian": "1.0.0",
     "hbs": "2.5.0",
+    "mongoose": "3.8.8",
     "reactive": "1.1.0",
     "static-favicon": "1.0.2",
     "stylish": "0.4.1",

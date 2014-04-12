@@ -1,10 +1,18 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var stylish = require('stylish');
 var favicon = require('static-favicon');
 var browserify_file = require('browserify-file');
 var taters = require('taters');
 var enchilada = require('enchilada');
 var hbs = require('hbs');
+var debug = require('debug')('browserify-search:www');
+
+var search = require('./lib/search');
+
+var mongodb_conn_str = process.env.MONGODB;
+debug('mongo %s', mongodb_conn_str);
+mongoose.connect(mongodb_conn_str);
 
 // we set certain settings based on production or not
 var kProduction = process.env.NODE_ENV === 'production';
@@ -41,16 +49,16 @@ app.get('/', function(req, res, next) {
     res.render('index');
 });
 
-// TODO put search stuff here
 app.get('/api/search', function(req, res, next) {
     var query = req.query.q;
 
-    // sample results
-    res.json([
-        { name: 'reactive', description: 'foobar' },
-        { name: 'xtend', description: 'foobaz' },
-        { name: 'prototype', description: 'magic beans' }
-    ]);
+    search(query, function(err, results) {
+        if (err) {
+            return next(err);
+        }
+
+        res.json(results);
+    });
 });
 
 // 404 handler

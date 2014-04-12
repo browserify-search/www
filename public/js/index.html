@@ -7,6 +7,10 @@
         <div each="results" class="search-result">
             <div>{name}</div>
             <div>{description}</div>
+            <div>
+                <span>github: {githubStars || 0}</span>
+                <span>npm: {npmStars || 0}</span>
+            </div>
         </div>
     </div>
 </div>
