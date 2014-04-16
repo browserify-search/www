@@ -49,6 +49,10 @@ app.get('/', function(req, res, next) {
     res.render('index');
 });
 
+app.get('/:query', function(req, res) {
+    res.render('index');
+});
+
 app.get('/api/search', function(req, res, next) {
     var query = req.query.q;
 

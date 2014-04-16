@@ -1,15 +1,37 @@
 <div>
-    <div class="search-controls {pintop ? 'pintop': ''}">
-        <input type="text" on-keyup="search" placeholder="search">
-    </div>
+    <form on-submit="submit" class="search-controls {pintop ? 'pintop': ''}">
+        <h1>Browserify Search</h1>
+        <input type="search" placeholder="search">
+        <button 
+            type="submit" 
+            class="btn btn-success">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
+    </form>
 
     <div class="search-results" data-show="pintop">
         <div each="results" class="search-result">
-            <div>{name}</div>
-            <div>{description}</div>
-            <div>
-                <span>github: {githubStars || 0}</span>
-                <span>npm: {npmStars || 0}</span>
+            <div class="title">
+                <a href="https://www.npmjs.org/package/{name}" target="_blank">{name}</a> 
+                <span data-visible="github">
+                    (<a href="https://github.com/{github}" target="_blank">github</a>)
+                </span>
+            </div>
+            <div class="description">{description}</div>
+            <div class="scores">
+                <span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span title="{githubStars || 0} Github stars">{githubStars || 0}</span>/<span title="{npmStars || 0} npm stars">{npmStars || 0}</span>
+                    &nbsp;
+                    <span title="{npmDownloadsLastMonth || 0} npm downloads in a month">
+                        <span class="glyphicon glyphicon-download"></span>
+                        {npmDownloadsLastMonth || 0}
+                    </span>
+                    <span title="{npmDependents || 0} dependent modules">
+                        <span class="glyphicon glyphicon-heart"></span>
+                        {npmDependents || 0}
+                    </span>
+                </span>
             </div>
         </div>
     </div>

@@ -3,28 +3,29 @@ var Reactive = require('reactive');
 var search = require('./search');
 var tmpl = require('./index.html');
 
-var Index = function() {
+var Index = function(page) {
     if (!(this instanceof Index)) {
-        return new Index();
+        return new Index(page);
     }
 
     var self = this;
+    self.page = page;
     self.view = Reactive(tmpl, {}, {
         delegate: self
     });
     self.element = self.view.el;
+    self.searchBox = self.element.querySelector('input');
 };
 
-Index.prototype.search = function(ev) {
-    // trigger on 'focus()'
-    if (ev.keyCode === 91) {
-        return;
-    }
+Index.prototype.submit = function(ev) {
+    var query = this.searchBox.value;
+    this.page.show('/' + escape(query));
+};
 
+Index.prototype.search = function(query) {
     var self = this;
     self.view.set('pintop', true);
 
-    var query = ev.target.value;
     if (query.length === 0) {
         return;
     }

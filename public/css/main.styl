@@ -121,12 +121,16 @@ textarea {
     transform: translateY(-50%);
 }
 
+body * {
+    box-sizing: border-box;
+}
+
 .search-controls {
     text-align: center;
     padding: 5px;
     width: 100%;
     position: fixed;
-    top: 45%
+    top: 35%
     transition: top 0.5s ease;
 
     input {
@@ -139,9 +143,22 @@ textarea {
             outline: 0;
         }
     }
+
+    button {
+        vertical-align: top;
+        height: 41px;
+    }
 }
 
 .search-results {
+    .title {
+        font-size: 125%;
+    }
+    .scores {
+        color: #999;
+        font-size: 90%;
+        cursor: default;
+    }
 }
 
 .search-result {
@@ -154,6 +171,10 @@ textarea {
     text-align: left;
     position: relative;
     border-bottom: 1px solid #ddd;
+
+    h1 {
+        display: none;
+    }
 }
 
 @import './print';
