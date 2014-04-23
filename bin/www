@@ -10,3 +10,5 @@ program
 
 var server = app.listen(program.port, function() {
 });
+
+console.log('Listening on', program.port);
