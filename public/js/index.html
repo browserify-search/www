@@ -18,19 +18,15 @@
                 </span>
             </div>
             <div class="description">{description}</div>
-            <div class="scores">
+            <div class="debug">
                 <span>
-                    <span class="glyphicon glyphicon-star"></span>
-                    <span title="{githubStars || 0} Github stars">{githubStars || 0}</span>/<span title="{npmStars || 0} npm stars">{npmStars || 0}</span>
-                    &nbsp;
-                    <span title="{npmDownloadsLastMonth || 0} npm downloads in a month">
-                        <span class="glyphicon glyphicon-download"></span>
-                        {npmDownloadsLastMonth || 0}
-                    </span>
-                    <span title="{npmDependents || 0} dependent modules">
-                        <span class="glyphicon glyphicon-heart"></span>
-                        {npmDependents || 0}
-                    </span>
+                    Relevance: {score}
+                </span>
+                <span>
+                    Awesomeness: {awesomeness}
+                </span>
+                <span>
+                    Browserifiability: {browserifiability}
                 </span>
             </div>
         </div>

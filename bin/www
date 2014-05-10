@@ -9,6 +9,5 @@ program
 .parse(process.argv);
 
 var server = app.listen(program.port, function() {
+  console.log('Listening on', program.port);
 });
-
-console.log('Listening on', program.port);
