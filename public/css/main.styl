@@ -166,14 +166,27 @@ body * {
     padding-left: 20px;
 }
 
-.pintop {
-    top: 0;
-    text-align: left;
-    position: relative;
-    border-bottom: 1px solid #ddd;
+.loading, .no_data {
+    display: none;
+    padding: 10px;
+    padding-left: 20px;
+    font-size: 125%;
+    color: #999;
+}
 
-    h1 {
-        display: none;
+.pintop {
+    form {
+        top: 0;
+        text-align: left;
+        position: relative;
+        border-bottom: 1px solid #ddd;
+
+        h1 {
+            display: none;
+        }
+    }
+    .loading, .no_data {
+        display: block;
     }
 }
 

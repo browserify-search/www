@@ -1,5 +1,5 @@
-<div>
-    <form on-submit="submit" class="search-controls {pintop ? 'pintop': ''}">
+<div class="{pintop ? 'pintop': ''}">
+    <form on-submit="submit" class="search-controls">
         <h1>Browserify Search</h1>
         <input type="search" placeholder="search">
         <button 
@@ -9,12 +9,17 @@
         </button>
     </form>
 
-    <div class="search-results" data-show="pintop">
+    <div class="loading" data-hidden="ready">
+        Loading...
+    </div>
+
+    <div class="search-results" data-show="ready">
+
         <div each="results" class="search-result">
             <div class="title">
                 <a href="https://www.npmjs.org/package/{name}" target="_blank">{name}</a> 
                 <span data-visible="github">
-                    (<a href="https://github.com/{github}" target="_blank">github</a>)
+                    (<a href="https://github.com/{github}" target="_blank">{github}</a>)
                 </span>
             </div>
             <div class="description">{description}</div>

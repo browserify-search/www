@@ -1,6 +1,7 @@
 var page = require('page');
 var Index = require('./index');
 var idx = Index(page);
+window.debug = require('debug')
 
 document.body.appendChild(idx.element);
 

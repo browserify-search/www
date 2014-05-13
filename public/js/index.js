@@ -30,7 +30,11 @@ Index.prototype.search = function(query) {
         return;
     }
 
+    var startTime = + new Date;
+    self.view.set('ready', false);
+    self.view.set('results', []);
     search(query, function(err, results) {
+        self.view.set('ready', true);
         self.view.set('results', results);
     });
 };
