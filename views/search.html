@@ -9,23 +9,35 @@
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="/css/main.css">
 </head>
-<body id="frontpage">
+<body id="search">
 
-	<form action="/search" class="big-search-form">
-		<h1 id="header"><span>Browserify</span></h1>
-	
+	<form action="/search" class="small-search-form">
 		<input
+			id="searchbox"
 			name="q"
 			type="search"
+			placeholder="search 41303 npm modules" size="36"
 			autofocus
-			placeholder="Search 41303 npm modules" size="36">
+			value="{{query}}">
 		<button 
 			type="submit" 
 			class="searchBtn btn btn-primary">
 			<span class="glyphicon glyphicon-search"></span>
 		</button>
-		
 	</form>
+	
+	<div class="search-results" data-show="ready">
+		{{#each results}}
+		<div class="search-result">
+			<div class="title">
+				<a href="https://www.npmjs.org/package/{{name}}">{{name}}</a> 
+			</div>
+			<div class="description">{{description}}</div>
+		</div>
+		{{/each}}
+
+		{{paginate query pageOptions}}
+	</div>
 
 </div>  
 </body>
