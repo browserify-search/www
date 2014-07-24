@@ -16,7 +16,7 @@
 			id="searchbox"
 			name="q"
 			type="search"
-			placeholder="search 41303 npm modules" size="36"
+			placeholder="Search 41303 npm modules" size="36"
 			autofocus
 			value="{{query}}">
 		<button 
@@ -30,7 +30,14 @@
 		{{#each results}}
 		<div class="search-result">
 			<div class="title">
-				<a href="https://www.npmjs.org/package/{{name}}">{{name}}</a> 
+				<a href="https://www.npmjs.org/package/{{name}}">{{name}}</a>
+				<span class="scores">
+				(
+				<span class="score relevance-score">{{score relevance}}</span>,
+				<span class="score browserifiability-score">{{score browserifiability}}</span>,
+				<span class="score popularity-score">{{score popularity}}</span>
+				)
+			</span>
 			</div>
 			<div class="description">{{description}}</div>
 		</div>

@@ -6,9 +6,12 @@ var taters = require('taters');
 var hbs = require('hbs');
 var debug = require('debug')('browserify-search:www');
 var paginator = require('./lib/paginator');
-
 var search = require('./lib/search');
+
 hbs.registerHelper('paginate', paginator);
+hbs.registerHelper('score', function(number){
+	return (10 * number).toFixed(0)
+})
 
 // we set certain settings based on production or not
 var kProduction = process.env.NODE_ENV === 'production';
