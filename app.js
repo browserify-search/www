@@ -7,6 +7,7 @@ var hbs = require('hbs');
 var debug = require('debug')('browserify-search:www');
 var paginator = require('./lib/paginator');
 var search = require('./lib/search');
+var escape = require('escape-html');
 
 hbs.registerHelper('paginate', paginator);
 hbs.registerHelper('score', function(number){
@@ -45,7 +46,8 @@ app.get('/', function(req, res, next) {
 app.get('/search', function(req, res, next) {
 	var query = req.query.q;
 	var page = Number(req.query.page || 1);
-	var pageSize = 10;
+	var pageSize = 20;
+
 	var pageOptions = {
 		page: page,
 		pageSize: pageSize
@@ -56,11 +58,19 @@ app.get('/search', function(req, res, next) {
 		if (err) {
 			return next(err);
 		}
+		pageOptions.total = results.total
+		var hits = results.hits
+
+		hits.forEach(function(hit){
+			hit.name = escape(hit.name)
+			hit.description = escape(hit.description)
+		})
 
 		debug('results', results)
 		res.render('search', {
 			query: query,
-			results: results,
+			total: results.total,
+			results: hits,
 			pageOptions: pageOptions
 		});
 	});
