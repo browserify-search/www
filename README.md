@@ -1,8 +1,6 @@
 # Website for Browserify Search
 
-## API
-
-### `GET /api/search`
+## `GET /api/search`
 
 Query parameters:
 
