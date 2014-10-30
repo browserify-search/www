@@ -61,7 +61,7 @@ app.get('/api/search', corsify({
 		page: pageOptions.page,
 		pageSize: pageOptions.pageSize,
 		total: results.total,
-		results: results.hits
+		hits: results.hits
 	}));
 })));
 
@@ -74,7 +74,7 @@ function searchMethod(render){
 		if (pageSize > 100){
 			pageSize = 100;
 		}
-		var accept = req.headers['Accept']
+		var accept = req.headers['Accept'];
 
 		var pageOptions = {
 			page: page,
@@ -97,11 +97,6 @@ function searchMethod(render){
 		});
 
 	}
-}
-
-
-function doSearch(query, pageOptions, callback){
-
 }
 
 app.use(function(req, res, next) {
