@@ -6,6 +6,7 @@
     "async": "^0.8.0",
     "browserify-file": "0.0.0",
     "commander": "2.2.0",
+    "corsify": "^2.0.0",
     "debug": "0.8.0",
     "enchilada": "0.8.0",
     "escape-html": "^1.0.1",

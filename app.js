@@ -8,11 +8,12 @@ var debug = require('debug')('browserify-search:www');
 var paginator = require('./lib/paginator');
 var search = require('./lib/search');
 var escape = require('escape-html');
+var corsify = require('corsify');
 
 hbs.registerHelper('paginate', paginator);
 hbs.registerHelper('score', function(number){
-	return (10 * number).toFixed(0)
-})
+	return (10 * number).toFixed(0);
+});
 
 // we set certain settings based on production or not
 var kProduction = process.env.NODE_ENV === 'production';
@@ -35,7 +36,7 @@ app.use(taters({
 app.use(stylish({
 	src: __dirname + '/public/',
 	compress: kProduction
-}))
+}));
 
 app.use(express.static(__dirname + '/static'));
 
@@ -43,38 +44,62 @@ app.get('/', function(req, res, next) {
 	res.render('index');
 });
 
-app.get('/search', function(req, res, next) {
-	var query = req.query.q;
-	var page = Number(req.query.page || 1);
-	var pageSize = 20;
-
-	var pageOptions = {
-		page: page,
-		pageSize: pageSize
-	}
-
-	search(query, pageOptions, 
-		function(err, results) {
-		if (err) {
-			return next(err);
-		}
-		pageOptions.total = results.total
-		var hits = results.hits
-
-		hits.forEach(function(hit){
-			hit.name = escape(hit.name)
-			hit.description = escape(hit.description)
-		})
-
-		debug('results', results)
-		res.render('search', {
-			query: query,
-			total: results.total,
-			results: hits,
-			pageOptions: pageOptions
-		});
+app.get('/search', searchMethod(function(results, query, pageOptions, res){
+	res.render('search', {
+		query: query,
+		total: results.total,
+		results: results.hits,
+		pageOptions: pageOptions
 	});
-});
+}));
+
+app.get('/api/search', corsify({
+	 "Access-Control-Allow-Methods": "GET"
+}, searchMethod(function(results, query, pageOptions, res){
+	res.end(JSON.stringify({
+		query: query,
+		page: pageOptions.page,
+		pageSize: pageOptions.pageSize,
+		total: results.total,
+		results: results.hits
+	}));
+})));
+
+function searchMethod(render){
+	return function(req, res, next) {
+
+		var query = req.query.q;
+		var page = Number(req.query.page || 1);
+		var pageSize = 20;
+		var accept = req.headers['Accept']
+
+		var pageOptions = {
+			page: page,
+			pageSize: pageSize
+		};
+
+		search(query, pageOptions, function(err, results) {
+			if (err) {
+				return next(err);
+			}
+			pageOptions.total = results.total;
+			var hits = results.hits;
+
+			hits.forEach(function(hit){
+				hit.name = escape(hit.name);
+				hit.description = escape(hit.description);
+			});
+
+			render(results, query, pageOptions, res);
+		});
+
+	}
+}
+
+
+function doSearch(query, pageOptions, callback){
+
+}
 
 app.use(function(req, res, next) {
 	res.render('404');
