@@ -57,7 +57,7 @@ app.get('/api/search', corsify({
 	 "Access-Control-Allow-Methods": "GET"
 }, searchMethod(function(results, query, pageOptions, res){
 	res.end(JSON.stringify({
-		query: query,
+		q: query,
 		page: pageOptions.page,
 		pageSize: pageOptions.pageSize,
 		total: results.total,
@@ -70,7 +70,10 @@ function searchMethod(render){
 
 		var query = req.query.q;
 		var page = Number(req.query.page || 1);
-		var pageSize = 20;
+		var pageSize = Number(req.query.pageSize || 20);
+		if (pageSize > 100){
+			pageSize = 100;
+		}
 		var accept = req.headers['Accept']
 
 		var pageOptions = {
