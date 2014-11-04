@@ -59,7 +59,7 @@ Open <http://localhost:3000> and you are set. *Except: this webapp reads from an
 
 [See more](https://github.com/browserify-search/scripts#elastic-search).
 
-## Feedback/Questions
+## Feedback
 
 Please try discovering modules with this service. If you see any problems with the search results, i.e.
 
