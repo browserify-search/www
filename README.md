@@ -58,3 +58,15 @@ Open <http://localhost:3000> and you are set. *Except: this webapp reads from an
 * finally, start `./bin/www`. Now, try <http://localhost:3000>.
 
 [See more](https://github.com/browserify-search/scripts#elastic-search).
+
+## Feedback/Questions
+
+Please try discovering modules with this service. If you see any problems with the search results, i.e.
+
+* a module is list when it shouldn't be
+* a module is not listed when it should be
+* a module should be ranked higher than it is
+* a module should be ranked lower than it is
+* anything else
+
+Please let me know by [submitting an issue](https://github.com/browserify-search/www/issues) to this repo.
