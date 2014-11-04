@@ -48,8 +48,8 @@ Open <http://localhost:3000> and you are set. Except: this webapp reads from an 
 
         git clone git@github.com:browserify-search/scripts.git
         cd scripts
-        
-* `./update_mapping` - this will create (recreate) the Elastic Search db
+
+* Run `./update_mapping` - this will create (or re-create) the Elastic Search db
 * Get the [mongodb data dump files](https://www.dropbox.com/sh/5cqeb8xj4z35w6l/AAAp5QSiQT00b_KergLyowkma?dl=0) `modules.json` and `moduleStats.json`
 * Run
 
