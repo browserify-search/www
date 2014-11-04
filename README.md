@@ -1,6 +1,8 @@
 # Website for Browserify Search
 
-## `GET /api/search`
+This project implements a web-based search engine similar to an early Google.
+
+## API - `GET /api/search`
 
 Query parameters:
 
@@ -31,6 +33,19 @@ Hit format:
 ./bin/www
 ```
 
-Open localhost:3000
+Open localhost:3000 and you are set. Except: this webapp reads from an elasticsearch instance, so first you have to install elasticsearch.
 
-This webapp reads from an elasticsearch instance, so first you have to install elasticsearch. I am working on providing a simple way to get set up so that others can easily hack on this repo.
+### Install/Setup Elastic Search
+
+First things first, you need to [install elastic search](http://www.elasticsearch.org/). Then you need to make sure you have the following settings in `elasticsearch.yml` (usually in the `config` directory within the location where Elastic Search is installed):
+
+```
+http.max_content_length: 1000mb
+script.disable_dynamic: false
+```
+
+Then, you'll need to checkout the [scripts](https://github.com/browserify-search/scripts) project, and run the `bulk_insert_elasticsearch_from_files.js` script, which allows you to import a mongodb data dump into Elastic Search. Get the [data dump files](https://www.dropbox.com/sh/5cqeb8xj4z35w6l/AAAp5QSiQT00b_KergLyowkma?dl=0), then run 
+ 
+    ./bulk_insert_elasticsearch_from_files.js modules.json moduleStats.json | curl -s -XPOST localhost:9200/browserify-search/module/_bulk --data-binary @-
+
+[See more](https://github.com/browserify-search/scripts#elastic-search).
