@@ -1,6 +1,6 @@
 # Website for Browserify Search
 
-This project implements a web-based search engine similar to an early Google.
+Browserify search is a search engine for discovering npm modules that work with [Browserify](http://browserify.org/). This project implements a search engine interface reminiscent of the early Google search engine. For more on how browserify search works behind the scenes, [read this](https://github.com/browserify-search/scripts).
 
 ## API - `GET /api/search`
 
