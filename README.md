@@ -33,7 +33,7 @@ Hit format:
 ./bin/www
 ```
 
-Open <http://localhost:3000> and you are set. Except: this webapp reads from an elasticsearch instance, so first you have to install elasticsearch.
+Open <http://localhost:3000> and you are set. *Except: this webapp reads from an elasticsearch instance, so first you have to install/setup elasticsearch.*
 
 ### Install/Setup Elastic Search
 
