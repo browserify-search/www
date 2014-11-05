@@ -12,135 +12,28 @@ html * {
 }
 
 #header {
-	width: 400px;
+	width: 300px;
 	margin: auto;
 
 	span {
-		background-image: url(/images/browserify.png);
-		background-repeat: no-repeat;
+		background: url(/images/browserify.png) center center no-repeat;
+		background-size: 80%;
 		height: 118px;
-		width: 400px;
+		width: 300px;
 
 		text-indent: -9999px;
 		display: block;
 	}
 }
 
-/*
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection rule sets have to be separate.
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-	background: #b3d4fc;
-	text-shadow: none;
-}
-
-::selection {
-	background: #b3d4fc;
-	text-shadow: none;
-}
-
-// A better looking default horizontal rule
-hr {
-	display: block;
-	height: 1px;
-	border: 0;
-	border-top: 1px solid #ccc;
-	margin: 1em 0;
-	padding: 0;
-}
-
-// Remove the gap between images, videos, audio and canvas and the bottom of
-// their containers: h5bp.com/i/440
-
-audio,
-canvas,
-img,
-svg,
-video {
-	vertical-align: middle;
-}
-
-// Remove default fieldset styles.
-fieldset {
-	border: 0;
-	margin: 0;
-	padding: 0;
-}
-
-// Allow only vertical resizing of textareas.
-textarea {
-	resize: vertical;
-}
-
-// Hide from both screenreaders and browsers: h5bp.com/u
-.hidden {
-	display: none !important;
-	visibility: hidden;
-}
-
-// Hide only visually, but have it available for screenreaders: h5bp.com/v
-.visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-}
-
-/*
- * Extends the .visuallyhidden class to allow the element to be focusable
- * when navigated to via the keyboard: h5bp.com/p
- */
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-	clip: auto;
-	height: auto;
-	margin: 0;
-	overflow: visible;
-	position: static;
-	width: auto;
-}
-
-// Hide visually and from screenreaders, but maintain layout
-.invisible {
-	visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * For modern browsers
- * 1. The space content is one way to avoid an Opera bug when the
- *    `contenteditable` attribute is included anywhere else in the document.
- *    Otherwise it causes space to appear at the top and bottom of elements
- *    that receive the `clearfix` class.
- * 2. The use of `table` rather than `block` is only necessary if using
- *    `:before` to contain the top-margins of child elements.
- */
-
-.clearfix:before,
-.clearfix:after {
-	content: " "; /* 1 */
-	display: table; /* 2 */
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.vmiddle {
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-moz-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+@media screen and (min-width: 640px) {
+	#header {
+		width: 400px;
+		span {
+			width: 400px;
+			background-size: 100%;
+		}
+	}
 }
 
 body * {
@@ -175,11 +68,11 @@ body#search {
 	padding: 5px;
 	width: 100%;
 	position: fixed;
-	top: 25%
+	top: 15%
 
 	input {
 		border: 1px solid #ddd;
-		font-size: 24px;
+		font-size: 15px;
 		padding: 5px;
 
 		&:focus {
@@ -190,7 +83,35 @@ body#search {
 
 	button {
 		vertical-align: top;
-		font-size: 23px;
+		font-size: 15px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.big-search-form {
+		input {
+			width: 85%;
+		}
+	}
+
+	.small-search-form {
+		input {
+			width: 85%;
+		}
+	}
+}
+
+@media screen and (min-width: 640px) {
+	.big-search-form {
+		top: 25%;
+
+		input {
+			font-size: 24px;
+		}
+
+		button {
+			font-size: 23px;
+		}
 	}
 }
 
