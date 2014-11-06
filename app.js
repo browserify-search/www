@@ -56,13 +56,13 @@ app.get('/search', searchMethod(function(results, query, pageOptions, res){
 app.get('/api/search', corsify({
 	 "Access-Control-Allow-Methods": "GET"
 }, searchMethod(function(results, query, pageOptions, res){
-	res.end(JSON.stringify({
+	res.json({
 		q: query,
 		page: pageOptions.page,
 		pageSize: pageOptions.pageSize,
 		total: results.total,
 		hits: results.hits
-	}));
+	});
 })));
 
 function searchMethod(render){
