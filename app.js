@@ -12,7 +12,7 @@ var corsify = require('corsify')
 
 hbs.registerHelper('paginate', paginator)
 hbs.registerHelper('score', function(number){
-	return (10 * number).toFixed(0)
+	return (Math.floor(10 * number)).toFixed(0)
 })
 hbs.registerHelper('toFixed', function(number, numDigits){
 	return number.toFixed(numDigits)

@@ -34,6 +34,11 @@
 				<a href="https://www.npmjs.org/package/{{name}}">{{name}}</a>
 			</div>
 			<div class="description">{{description}}</div>
+			<div class="keywords">
+				{{#each keywords}}
+				<span class="keyword">{{.}}</span>
+				{{/each}}
+			</div>
 			<span class="scores">
 				<span class="browserifiability-{{browserifyLevel browserifiability}}" title="Browserifiability score">{{score browserifiability}}</span>
 				&middot;
