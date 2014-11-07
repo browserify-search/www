@@ -32,6 +32,19 @@
 		<div class="search-result">
 			<div class="title">
 				<a href="https://www.npmjs.org/package/{{name}}">{{name}}</a>
+
+				{{#if github}}
+				<span class="github">
+				(<a href="https://github.com/{{github}}">gh:{{github}}</a>)
+				</span>
+				{{/if}}
+
+				{{#if author}}
+				<span class="author">
+				by <a href="https://www.npmjs.org/~{{author}}">{{author}}</a>
+				</span>
+				{{/if}}
+				
 			</div>
 			<div class="description">{{description}}</div>
 			<div class="keywords">
