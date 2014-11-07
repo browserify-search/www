@@ -14,6 +14,14 @@ hbs.registerHelper('paginate', paginator)
 hbs.registerHelper('score', function(number){
 	return (10 * number).toFixed(0)
 })
+hbs.registerHelper('toFixed', function(number, numDigits){
+	return number.toFixed(numDigits)
+})
+hbs.registerHelper('browserifyLevel', function(score){
+	if (score >= 0.8) return 'high'
+	if (score >= 0.5) return 'medium'
+	return 'low'
+})
 
 // we set certain settings based on production or not
 var kProduction = process.env.NODE_ENV === 'production'

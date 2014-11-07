@@ -32,22 +32,22 @@
 		<div class="search-result">
 			<div class="title">
 				<a href="https://www.npmjs.org/package/{{name}}">{{name}}</a>
-				<span class="scores">
-					<span class="" title="Browserifiability score of {{browserifiability}}">{{score browserifiability}}</span>
-					<span title="Downloads last month">
-						{{score downloadsLastMonth}}
-						<span class="glyphicon glyphicon-download"></span>
-					</span>
-				</span>
-				<span class="scores">
-				(
-				<span class="score relevance-score" title="Search relevance score of {{relevance}}">{{score relevance}}</span>,
-				<span class="score browserifiability-score" title="Browserifiability score of {{browserifiability}}">{{score browserifiability}}</span>,
-				<span class="score popularity-score" title="Popularity score of {{popularity}}">{{score popularity}}</span>
-				)
-			</span>
 			</div>
 			<div class="description">{{description}}</div>
+			<span class="scores">
+				<span class="browserifiability-{{browserifyLevel browserifiability}}" title="Browserifiability score">{{score browserifiability}}</span>
+				&middot;
+				<span title="Search relevance score">
+					{{toFixed relevance 1}}
+					<span class="glyphicon glyphicon-search"></span>
+				</span>
+				&middot;
+				<span title="Downloads last month">
+					{{score downloadsLastMonth}}
+					<span class="glyphicon glyphicon-download"></span>
+				</span>
+			</span>
+			
 		</div>
 		{{else}}
 		<p>No results found for {{query}}.</p>
