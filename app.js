@@ -86,6 +86,7 @@ function searchMethod(render){
 				return next(err);
 			}
 			pageOptions.total = results.total;
+			pageOptions.numPages = Math.ceil(results.total / pageSize);
 			var hits = results.hits;
 
 			hits.forEach(function(hit){
