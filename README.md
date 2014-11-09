@@ -1,4 +1,5 @@
 # Website for Browserify Search
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/browserify-search/www?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Browserify search is a search engine for discovering npm modules that work with [Browserify](http://browserify.org/). The live site is currently
 
