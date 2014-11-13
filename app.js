@@ -22,6 +22,9 @@ hbs.registerHelper('browserifyLevel', function(score){
 	if (score >= 0.5) return 'medium'
 	return 'low'
 })
+hbs.registerHelper('attrval', function(value){
+	return escape(value)
+})
 
 // we set certain settings based on production or not
 var kProduction = process.env.NODE_ENV === 'production'

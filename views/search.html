@@ -18,7 +18,7 @@
 			type="search"
 			placeholder="Search browserifiable modules on npm" size="36"
 			autofocus
-			value="{{query}}">
+			value="{{attrval query}}">
 		<button 
 			type="submit" 
 			class="searchBtn btn btn-primary">
@@ -31,18 +31,18 @@
 		{{#each results}}
 		<div class="search-result">
 			<div class="title">
-				<a href="https://www.npmjs.org/package/{{name}}">{{name}}</a>
+				<a target="_blank" href="https://www.npmjs.org/package/{{name}}">{{name}}</a>
 
 				{{#if author}}
 				<span class="author">
-				by <a href="https://www.npmjs.org/~{{author}}">{{author}}</a>
+				by <a target="_blank" href="https://www.npmjs.org/~{{author}}">{{author}}</a>
 				</span>
 				{{/if}}
 
 				{{#if githubRepo}}
 				&middot;
 				<span class="github">
-				<a href="https://github.com/{{githubRepo.owner}}/{{githubRepo.name}}">gh:{{githubRepo.owner}}/{{githubRepo.name}}</a>
+				<a target="_blank" href="https://github.com/{{githubRepo.owner}}/{{githubRepo.name}}">gh:{{githubRepo.owner}}/{{githubRepo.name}}</a>
 				</span>
 				{{/if}}
 
