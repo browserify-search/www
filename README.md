@@ -7,6 +7,14 @@ Browserify search is a search engine for discovering npm modules that work with 
 
 This project implements a search engine interface reminiscent of the early Google search engine. For more on how browserify search works behind the scenes, [read this](https://github.com/browserify-search/scripts). There's also a REST API, as described in the next section.
 
+## Query Syntax
+
+Other than basic search terms, there are a few special syntaxes you can use to control the search results returned.
+
+* `"<multi-word phrase>"` - you can surround a multi-word phrase with double-quotes to require the those words in that exact order in the results. Ex: `"functional programming" javascript`, `simulate "dom events"`.
+* `author:<author name>` - you can filter the results to only those by a particular author. Ex: `dom author:substack`.
+* `github-owner:<github owner>` - you can filter the results to only those owned by a particular github account or organization. Ex: `dom github-owner:component`.
+
 ## API - `GET /api/search`
 
 Query parameters:
